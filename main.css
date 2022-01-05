@@ -120,7 +120,7 @@ body{
 /* Larger than mobile */
 @media (min-width: 400px) {
     :root{
-        --sidebar-width: 280px;
+        --sidebar-width: 275px;
     }
     .sidebar-container{
         width: var(--sidebar-width);
@@ -154,7 +154,7 @@ body{
 }
 
 .dark-theme{
-    --bg: var(--darkgrey);
+    --bg: var(--darkblue);
     --fontColor: var(--white);
     --themeBtnBg: var(--white);
     --themeBtnFontColor:var(--light);
