@@ -6,7 +6,7 @@
     --white: #ffffff;
     --black: #000000;
     --sidebar-width: 100%;
-    --button-size: 40px;
+    --button-size: 35px;
     --button-margin: 5px;
 }
 
@@ -38,7 +38,7 @@
 
 .sidebar-container{
     width: var(--sidebar-width);
-    height: 100vh; /* should probs change later lol */
+    height: 60vh; /* should probs change later lol */
     display: flex;
     margin-top: 40vh;
     flex-direction: column;
