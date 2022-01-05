@@ -11,7 +11,7 @@
   <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
 
-<body>
+<body class = "light-theme">
     
     <div class="main-container">
         <div class = "header">
@@ -36,7 +36,20 @@
 
             
         </div>
-
+            
+        <div>
+            <button class="theme-btn">
+                <div class = "inside-btn">
+                    <div id = "btn-theme-inside-text">Dark</div>
+                </div>
+            </button>
+        </div>
     </div>
+    <!--- external javascript, placing at the end of the 
+        body allows all of the page content to display on 
+        the screen first and then load the script---> 
+        <script src="app.js"></script> 
+        <noscript>You need to enable JavaScript to view the full site.</noscript>
+        <!--- noscript can be used to show a message if JavaScript is deactivated---> 
 </body>
 </html>

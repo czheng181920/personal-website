@@ -1,10 +1,14 @@
 :root{
     --lightblue: #78bdc4;
+    --superlightblue:#bdd7da;
     --darkblue: #012c3d;
     --offwhite: #f7f8f3;
     --red: #f8444f;
     --white: #ffffff;
     --black: #000000;
+    --darkgrey: #1a1a1a;
+    --grey: #3a3a3a;
+    --mutedblue: #98afc5;
     --sidebar-width: 100%;
     --button-size: 35px;
     --button-margin: 5px;
@@ -18,7 +22,9 @@
     border: 0;
     outline: 0;
 }
-
+body{
+    background-color: var(--bg);
+}
 .header{
     width: 100%;
     height: 100%;
@@ -70,23 +76,47 @@
 }
 
 .button{
-    background-color: var(--darkblue);
+    background-color: var(--buttonColor);
     height: var(--button-size);
-    border-radius: var(--button-size);
     width: var(--button-size);
+    border-radius: var(--button-size);
     transition:ease;
-    transition-duration: 1s;
+    transition-duration: .7s;
     margin-right: var(--button-margin);
 }
 .last-button{
     margin-right: 0px;
 }
 .button:hover{
-    background-color: var(--offwhite);
+    background-color: var(--buttonHoverColor);
     width: calc( var(--sidebar-width) - (2 * (var(--button-size) + var(--button-margin))));
     /* width: calc(max-content - 80px); */
 }
 
+.theme-btn{
+    position: absolute;
+    height: calc( 10px + var(--button-size));
+    width: calc( 15px + (var(--button-size) * 2));
+    border-radius: var(--button-size);
+    bottom: 20px;
+    right: 20px;
+    color: var(--themeBtnFontColor);
+    background-color: var(--themeBtnBg);
+
+    transition:ease;
+    transition-duration: .7s;
+}
+.inside-btn{
+    height: var(--button-size);
+    width: calc( 10px + var(--button-size));
+    border-radius: var(--button-size);
+    margin: 5px;
+    float: var(--insideBtnPosition);
+    background-color: var(--insideBtnColor);
+}
+#btn-theme-inside-text{
+    margin-top: 8px;
+}
 /* Larger than mobile */
 @media (min-width: 400px) {
     :root{
@@ -111,22 +141,28 @@
     }
 }
 
-/* 
+
 .light-theme{
-    color: #000000;
-    background: #c4c1dd;
-    --bg: var(--lightblue);
+    --bg: var(--white);
     --fontColor: var(--black);
-    --btnBg: var(--black);
-    --btnFontColor:var(--white)
+    --themeBtnBg: var(--darkblue);
+    --themeBtnFontColor:var(--white);
+    --buttonColor: var(--darkblue);
+    --buttonHoverColor: var(--superlightblue);
+    --insideBtnPosition: right;
+    --insideBtnColor: var(--offwhite);
 }
 
 .dark-theme{
-    --bg:var(--black);
-    --fontColor:var(--lightblue);
-    --btnBg: var(--white);
-    --btnFontColor:var(--black)
-} */
+    --bg: var(--darkgrey);
+    --fontColor: var(--white);
+    --themeBtnBg: var(--white);
+    --themeBtnFontColor:var(--light);
+    --buttonColor: var(--offwhite);
+    --buttonHoverColor: var(--lightblue);
+    --insideBtnPosition: left;
+    --insideBtnColor: var(--darkgrey);
+}
 
 /* Larger than phablet (also point when grid becomes active) */
 @media (min-width: 550px) {}
