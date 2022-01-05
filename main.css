@@ -5,6 +5,7 @@
     --red: #f8444f;
     --white: #ffffff;
     --black: #000000;
+    --sidebar-width: 280px;
 }
 
 * {/*  "*" selector is a universial selector that applies to all page elements */
@@ -49,7 +50,6 @@
     text-align: center;
     width: 100%;
     font-size: 120%;
-    /* text-align:justify; */
     /* background-color: var(--lightblue); */
 }
 /* .sidebar-content{
@@ -57,32 +57,50 @@
 
 } */
 
-@media (min-width: 750px) {
+
+.buttons-container{
+    width: 65.3333333333%;
+    margin-left: 17.3333333333%;
+    display: flex;
+    flex-direction: row;
+    /* width: min-content; */
+    justify-content:center;
+}
+
+.button{
+    background-color: var(--darkblue);
+    height: 40px;
+    border-radius: 40px;
+    width: 40px;
+    transition:ease;
+    transition-duration: 1s;
+    margin-right: 10px;
+}
+.button:hover{
+    background-color: var(--lightblue);
+    width: 100px;
+    /* width: calc(max-content - 80px); */
+}
+
+/* Larger than mobile */
+@media (min-width: 400px) {
     .sidebar-container{
-        width: 39.3333333333%;
+        width: var(--sidebar-width);
         margin-left: 17.3333333333%;
         vertical-align: baseline;
     }
     .sidebar-text{
         width: 100%;
+        margin-left: 0px;
         font-size: 120%;
-        text-align: left;
+        text-align: justify;
+        
     }
-}
-
-.buttons-container{
-    background-color: var(--lightblue);
-    display: flex;
-    flex-direction: row;
-    /* width: min-content; */
-    justify-content: space-between;
-}
-
-.button{
-    background-color: var(--darkblue);
-    height: 50px;
-    border-radius: 50px;
-    width: 50px;
+    .buttons-container{
+        width: 100%;
+        margin-left: 0%;
+        justify-content: flex-start;
+    }
 }
 
 /* 
@@ -102,14 +120,11 @@
     --btnFontColor:var(--black)
 } */
 
-/* Larger than mobile */
-@media (min-width: 400px) {}
-
 /* Larger than phablet (also point when grid becomes active) */
 @media (min-width: 550px) {}
 
 /* Larger than tablet */
-
+@media (min-width: 750px) {}
 
 /* Larger than desktop */
 @media (min-width: 1000px) {}
