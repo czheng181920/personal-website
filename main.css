@@ -5,7 +5,9 @@
     --red: #f8444f;
     --white: #ffffff;
     --black: #000000;
-    --sidebar-width: 280px;
+    --sidebar-width: 100%;
+    --button-size: 40px;
+    --button-margin: 5px;
 }
 
 * {/*  "*" selector is a universial selector that applies to all page elements */
@@ -35,12 +37,12 @@
 }
 
 .sidebar-container{
-    width: 100%;
+    width: var(--sidebar-width);
     height: 100vh; /* should probs change later lol */
     display: flex;
     margin-top: 40vh;
     flex-direction: column;
-    background-color: var(--offwhite);
+    /* background-color: var(--offwhite); */
 /* 
     position: sticky;
     display: flex;
@@ -59,8 +61,8 @@
 
 
 .buttons-container{
-    width: 65.3333333333%;
-    margin-left: 17.3333333333%;
+    width: 82.6666666667%;
+    margin-left: 8.66666666667%;
     display: flex;
     flex-direction: row;
     /* width: min-content; */
@@ -69,21 +71,27 @@
 
 .button{
     background-color: var(--darkblue);
-    height: 40px;
-    border-radius: 40px;
-    width: 40px;
+    height: var(--button-size);
+    border-radius: var(--button-size);
+    width: var(--button-size);
     transition:ease;
     transition-duration: 1s;
-    margin-right: 10px;
+    margin-right: var(--button-margin);
+}
+.last-button{
+    margin-right: 0px;
 }
 .button:hover{
-    background-color: var(--lightblue);
-    width: 100px;
+    background-color: var(--offwhite);
+    width: calc( var(--sidebar-width) - (2 * (var(--button-size) + var(--button-margin))));
     /* width: calc(max-content - 80px); */
 }
 
 /* Larger than mobile */
 @media (min-width: 400px) {
+    :root{
+        --sidebar-width: 280px;
+    }
     .sidebar-container{
         width: var(--sidebar-width);
         margin-left: 17.3333333333%;
