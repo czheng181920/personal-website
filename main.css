@@ -85,7 +85,6 @@ body{
     margin-right: var(--button-margin);
     display:  inline-block;
     stroke: var(--buttonHoverColor);
-    fill: none;
 }
 .last-button{
     margin-right: 0px;
@@ -95,7 +94,6 @@ body{
     width: calc( var(--sidebar-width) - (2 * (var(--button-size) + var(--button-margin))));
     color: var(--offwhite);
     stroke: var(--buttonColor);
-    fill:none;
 }
 
 svg{
