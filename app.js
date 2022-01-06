@@ -9,9 +9,9 @@ switcher.addEventListener('click', function(){
     //update label for button
     var className = document.body.className;
     if(className == "light-theme"){ 
-        document.getElementById("btn-theme-inside-text") = "Dark"; 
+        document.getElementById("btn-theme-inside-text").textContent = "Dark"; 
     } else{
-        document.getElementById("btn-theme-inside-text") = "Light";     }
+        document.getElementById("btn-theme-inside-text").textContent = "Light";     }
 
     console.log('current class name: ' + className); //console message
 
