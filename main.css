@@ -106,7 +106,7 @@ svg{
 
 .theme-btn{
     position: absolute;
-    height: calc( 10px + var(--button-size));
+    height: calc( 6px + var(--button-size));
     width: calc( (var(--button-size) * 2));
     border-radius: var(--button-size);
     bottom: 15px;
@@ -121,7 +121,7 @@ svg{
     height: var(--button-size);
     width: calc( 10px + var(--button-size));
     border-radius: var(--button-size);
-    margin: 5px;
+    margin: 3px;
     float: var(--insideBtnPosition);
     background-color: var(--insideBtnColor);
     
