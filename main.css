@@ -44,10 +44,11 @@ body{
 
 .sidebar-container{
     width: var(--sidebar-width);
-    height: 60vh; /* should probs change later lol */
+    height: 100vh; /* should probs change later lol */
     display: flex;
-    margin-top: 35vh;
+    /* margin-top: 35vh; */
     flex-direction: column;
+    justify-content: center;
     /* background-color: var(--offwhite); */
 /* 
     position: sticky;
@@ -106,10 +107,10 @@ svg{
 .theme-btn{
     position: absolute;
     height: calc( 10px + var(--button-size));
-    width: calc( 15px + (var(--button-size) * 2));
+    width: calc( (var(--button-size) * 2));
     border-radius: var(--button-size);
-    bottom: 20px;
-    right: 20px;
+    bottom: 15px;
+    right: 15px;
     color: var(--themeBtnFontColor);
     background-color: var(--themeBtnBg);
 
@@ -123,10 +124,10 @@ svg{
     margin: 5px;
     float: var(--insideBtnPosition);
     background-color: var(--insideBtnColor);
-}
-#btn-theme-inside-text{
-    margin-top: 10px;
-    font-size: smaller;
+    
+    line-height: var(--button-size); 
+    white-space: nowrap;
+    font-size:smaller;
 }
 /* Larger than mobile */
 @media (min-width: 400px) {
