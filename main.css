@@ -46,7 +46,7 @@ body{
     width: var(--sidebar-width);
     height: 60vh; /* should probs change later lol */
     display: flex;
-    margin-top: 40vh;
+    margin-top: 35vh;
     flex-direction: column;
     /* background-color: var(--offwhite); */
 /* 
@@ -172,7 +172,7 @@ svg{
     --buttonColor: var(--offwhite);
     --buttonHoverColor: var(--lightblue);
     --insideBtnPosition: left;
-    --insideBtnColor: var(--darkgrey);
+    --insideBtnColor: var(--darkblue);
 }
 
 /* Larger than phablet (also point when grid becomes active) */
