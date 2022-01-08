@@ -155,7 +155,7 @@ hr{
     border-top: 1px solid #cfcfcf;
     margin-bottom: 30px;
 }
-.demo-gif{
+.project-demo{
     display: block;
     height: 300px;
     width: 300px;
@@ -183,15 +183,9 @@ hr{
         margin-left: 0%;
         justify-content: flex-start;
     }
-    .theme-btn{
-        left: 10px;
-    }
     .content{
         margin-left: 16.6666667%;
         width: 66.66666667%;
-    }
-    h2{
-        text-align:left;
     }
 }
 
