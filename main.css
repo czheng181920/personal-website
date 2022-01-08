@@ -6,10 +6,11 @@
     --red: #f8444f;
     --white: #ffffff;
     --black: #000000;
+    --lightgrey: #fdfdfd;
     --darkgrey: #1a1a1a;
     --grey: #3a3a3a;
     --mutedblue: #98afc5;
-    --sidebar-width: 100%;
+    --sidebar-width: 91.6666667%;
     --button-size: 35px;
     --button-margin: 5px;
 }
@@ -21,6 +22,7 @@
     padding: 0;
     border: 0;
     outline: 0;
+    box-sizing: border-box;
 }
 body{
     background-color: var(--bg);
@@ -44,12 +46,11 @@ body{
 
 .sidebar-container{
     width: var(--sidebar-width);
+    margin-left: 4.1666667%;
     height: 100vh; /* should probs change later lol */
     display: flex;
-    /* margin-top: 35vh; */
     flex-direction: column;
     justify-content: center;
-    /* background-color: var(--offwhite); */
 /* 
     position: sticky;
     display: flex;
@@ -68,8 +69,7 @@ body{
 
 
 .buttons-container{
-    width: 82.6666666667%;
-    margin-left: 8.66666666667%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     /* width: min-content; */
@@ -109,8 +109,8 @@ svg{
     height: calc( 6px + var(--button-size));
     width: calc( (var(--button-size) * 2));
     border-radius: var(--button-size);
-    bottom: 15px;
-    right: 15px;
+    top: 10px;
+    left: 4.1666667%;
     color: var(--themeBtnFontColor);
     background-color: var(--themeBtnBg);
 
@@ -129,6 +129,38 @@ svg{
     white-space: nowrap;
     font-size:smaller;
 }
+
+.content{
+    width: 91.6666667%;
+    margin-left: 4.1666667%;
+    height: 100%; /* should probs change later lol */
+    display: block;
+    font-size: 110%;
+    /* background-color: var(--transparentwhite); */
+}
+
+.content h2{
+    text-align: center;
+    line-height: 140%;
+    margin-bottom: 20px;
+}
+.content h3{
+    margin-bottom: 20px;
+}
+.content p{
+    margin-bottom: 20px;
+}
+
+hr{
+    border-top: 1px solid #cfcfcf;
+    margin-bottom: 30px;
+}
+.demo-gif{
+    display: block;
+    height: 300px;
+    width: 300px;
+}
+
 /* Larger than mobile */
 @media (min-width: 400px) {
     :root{
@@ -136,7 +168,7 @@ svg{
     }
     .sidebar-container{
         width: var(--sidebar-width);
-        margin-left: 17.3333333333%;
+        margin-left: 16.6666667%;
         vertical-align: baseline;
     }
     .sidebar-text{
@@ -151,11 +183,22 @@ svg{
         margin-left: 0%;
         justify-content: flex-start;
     }
+    .theme-btn{
+        left: 10px;
+    }
+    .content{
+        margin-left: 16.6666667%;
+        width: 66.66666667%;
+    }
+    h2{
+        text-align:left;
+    }
 }
 
 
+
 .light-theme{
-    --bg: var(--white);
+    --bg: var(--lightgrey);
     --fontColor: var(--black);
     --themeBtnBg: var(--darkblue);
     --themeBtnFontColor:var(--white);
