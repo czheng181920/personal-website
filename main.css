@@ -157,8 +157,8 @@ hr{
     margin-top: 50px;
 }
 .projects hr{
-    margin-bottom: 30px;
-    margin-top: 30px;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 .subtitle{
     color: var(--accentColor);
@@ -270,9 +270,9 @@ a:active { text-decoration: none; }
 .light-theme{
     --bg: var(--lightgrey);
     --fontColor: var(--black);
-    --accentColor: var(--grey);
+    --accentColor: var(--lightblue);
     --themeBtnBg: var(--darkblue);
-    --themeBtnFontColor:var(--white);
+    --themeBtnFontColor:var(--darkblue);
     --buttonColor: var(--darkblue);
     --buttonHoverColor: var(--superlightblue);
     --insideBtnPosition: right;
