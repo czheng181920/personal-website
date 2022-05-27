@@ -176,6 +176,12 @@ hr{
     width: 241px;
     margin-bottom: 10px;
 }
+.countdowntimer-gif{
+    height: 140px;
+    width: 240px;
+    margin-bottom: 10px;
+    margin-top: 4px;
+}
 .projects .button{
     background-color: var(--buttonHoverColor);
     stroke: var(--buttonColor);
