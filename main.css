@@ -139,13 +139,13 @@ svg{
     /* background-color: var(--transparentwhite); */
 }
 
-.content h2{
+.content h1{
     text-align: center;
     line-height: 140%;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
-.content h3{
-    margin-bottom: 20px;
+.content h2{
+    margin-bottom: 30px;
 }
 .content p{
     margin-bottom: 20px;
@@ -157,8 +157,8 @@ hr{
     margin-top: 50px;
 }
 .projects hr{
-    margin-bottom: 30px;
-    margin-top: 30px;
+    margin-bottom: 40px;
+    margin-top: 40px;
 }
 .subtitle{
     color: var(--accentColor);
