@@ -91,11 +91,7 @@ body{
 .last-button{
     margin-right: 0px;
 }
-.button:hover{
-    background-color: var(--buttonHoverColor);
-    width: calc( var(--sidebar-width) - (2 * (var(--button-size) + var(--button-margin))));
-    stroke: var(--buttonColor);
-}
+
 
 svg{
     display: block;
@@ -187,11 +183,7 @@ hr{
     stroke: var(--buttonColor);
     --linkColor: var(--buttonColor);
 }
-.projects .button:hover{
-    background-color: var(--buttonColor);
-    stroke: var(--buttonHoverColor);
-    --linkColor: var(--buttonHoverColor);
-}
+
 .button a{
     color: var(--linkColor);
 }
@@ -308,3 +300,17 @@ a:active { text-decoration: none; }
 
 /* Larger than Desktop HD */
 @media (min-width: 1200px) {}
+
+/* fixes sticky hover */
+@media (hover: hover) {
+    .button:hover{
+        background-color: var(--buttonHoverColor);
+        width: calc( var(--sidebar-width) - (2 * (var(--button-size) + var(--button-margin))));
+        stroke: var(--buttonColor);
+    }
+    .projects .button:hover{
+        background-color: var(--buttonColor);
+        stroke: var(--buttonHoverColor);
+        --linkColor: var(--buttonHoverColor);
+    }
+}
