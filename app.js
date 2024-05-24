@@ -32,3 +32,21 @@ function readMoreFunction(){
         moreText.style.display = "inline";
   }
 }
+
+// Function to check if user prefers reduced motion
+function prefersReducedMotion() {
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
+const foregroundClouds = document.getElementById("foregroundClouds");
+const backgroundWhisps = document.getElementById("backgroundWhisps");
+
+// Event listener for moving the clouds and whisps with the mouse
+document.addEventListener('mousemove', (e) =>{
+    const mouseX = e.clientX;
+
+    if(!prefersReducedMotion()){
+        foregroundClouds.style.right= `-${mouseX/400 + 10}%`;
+        backgroundWhisps.style.right= `-${mouseX/550 + 12}%`;   
+    }
+})
