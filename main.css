@@ -13,9 +13,18 @@
     --mutedblue: #D6E4ED;
     --sidebar-width: 91.6666667%;
     --button-size: 35px;
-    --button-extra-size: 2rem;
+    --button-extra-size: 1.5rem;
     --button-margin: 5px;
 }
+
+@font-face {
+    font-family: 'Glimer';
+    src: local('Glimer Regular'), local('Glimer-Regular'),
+        url('assets/Gilmer-Regular.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+
 @font-face {
     font-family: 'Goldplay';
     src: local('Goldplay SemiBold'), local('Goldplay-SemiBold'),
@@ -25,7 +34,7 @@
 }
 
 * {
-    font-family: Quicksand;
+    font-family: Glimer, Verdana;
     margin: 0;
     padding: 0;
     border: 0;
@@ -34,11 +43,20 @@
     letter-spacing: -.02em;
 }
 
-h1,h2,h3,h4,h5,h6{
-    font-family: Goldplay;
+h1,h2,h3,h4,h5,h6, h1 span {
+    font-family: Goldplay, Verdana;
     font-weight: 600;
 }
 
+h1{
+    font-size: 3rem;
+    line-height: 3rem;
+}
+
+p {
+    font-family : Glimer, Verdana;
+    font-size: 2rem;
+}
 .sidebar-text h1{
     font-size: 5rem;
     margin: 0 0 2.5rem 0;
@@ -152,6 +170,16 @@ body{
     .theme-btn{
         animation: fade-right-slow 0.2s .6s backwards;
     }
+    .hidden {
+        opacity:0;
+        transition: all .5s ease-out;
+        transform: translateY(50px) scale(0.9);
+    }
+    .show {
+        opacity:1;
+        transform: translateY(0px) scale(1);
+    }
+
 }
 
 .sidebar-container{
@@ -232,10 +260,10 @@ svg{
 .about-me-container{
     height: 100vh;
     width: 100%;
-    background-color: var(--themeBtnBg);
-    border-radius: var(--button-size);
-    color: var(--bg)
+    background-color: var(--lightgrey);
+    border-radius: var(--button-size) var(--button-size) 0 0;
 }
+
 .content{
     width: 91.6666667%;
     margin-left: 4.1666667%;
@@ -244,8 +272,13 @@ svg{
     font-size: 110%;
     /* background-color: var(--transparentwhite); */
     padding-top: 30px;
+    
 }
 
+.content-container{
+    width: 100%;
+    background-color: var(--lightgrey);
+}
 .content h1{
     text-align: center;
     line-height: 140%;
@@ -329,7 +362,7 @@ a:active { text-decoration: none; }
     }
     .sidebar-text{
         width: 100%;
-        margin-top: 4rem;
+        margin-top: 9rem;
         text-align: justify;
     }
     .theme-btn{
@@ -363,10 +396,14 @@ a:active { text-decoration: none; }
     .project-details{
         padding-left: 15px;
     }
+    h1 {
+        font-size: 5rem;
+        line-height: 5rem;
+    }
     .sidebar-text h1{
         font-size: 7.5rem;
-        margin: 0 0 3.6375rem 0;
-        line-height: 7.5rem;
+        margin: 0 0 3.5rem 0;
+        line-height: 7rem;
     }
 }
 
@@ -385,7 +422,28 @@ a:active { text-decoration: none; }
     left: 0%;
 }
 
+.sticky{
+    position: sticky;
+    top:0;
+    z-index: 1;
+}
+.sticky::before {
+    --alpha-value: calc((max(var(--scroll), 25) - 25) * .003);
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, var(--alpha-value)); /* Semi-transparent black */
+    pointer-events: none; 
+    z-index: 1; /* Ensure this is above the parent content but below any overlaying elements */
+}
 
+.layer{
+    position: relative;
+    z-index: 20;
+}
 
 .light-theme{
     --bg: var(--lightgrey);
@@ -401,16 +459,15 @@ a:active { text-decoration: none; }
 
 .dark-theme{
     --bg: var(--darkblue);
-    --fontColor: var(--white);
+    --fontColor: var(--lightgrey);
     --accentColor: var(--lightblue);
-    --themeBtnBg: var(--white);
+    --themeBtnBg: var(--lightgrey);
     --themeBtnFontColor:var(--light);
     --buttonColor: var(--lightgrey);
     --buttonHoverColor: var(--lightblue);
     --insideBtnPosition: left;
     --insideBtnColor: var(--darkblue);
 }
-
 /* Larger than phablet (also point when grid becomes active) */
 @media (min-width: 550px) {}
 
@@ -435,4 +492,8 @@ a:active { text-decoration: none; }
         stroke: var(--buttonHoverColor);
         --linkColor: var(--buttonHoverColor);
     }
+}
+
+:root{
+    --scroll:0;
 }

@@ -60,3 +60,31 @@ document.addEventListener('mousemove', (e) =>{
         backgroundWhisps.style.right= `-${mouseX/450 + 12}%`;   
     }
 })
+
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('show');
+        } else {
+            entry.target.classList.remove('show');
+        }
+    });
+});
+
+const hiddenElements = document.querySelectorAll('.hidden');
+hiddenElements.forEach(element => observer.observe(element));
+
+function setScrollVar() {
+    const htmlElement = document.documentElement
+    const percentOfScreenHeightScrolled =
+    htmlElement.scrollTop / htmlElement.clientHeight
+    htmlElement.style.setProperty(
+        "--scroll",
+        Math.min(percentOfScreenHeightScrolled * 100, 100)
+    )
+}
+
+window.addEventListener('scroll', setScrollVar);
+window.addEventListener('resize', setScrollVar);
+setScrollVar();
