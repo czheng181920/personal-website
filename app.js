@@ -50,17 +50,32 @@ function prefersReducedMotion() {
 
 const foregroundClouds = document.getElementById("foregroundClouds");
 const backgroundWhisps = document.getElementById("backgroundWhisps");
+let mouseX = 0;
+let currentForegroundRight = 0;
+let currentBackgroundRight = 0;
+const smoothFactor = 0.1; // Adjust the smooth factor for desired smoothness
 
-// Event listener for moving the clouds and whisps with the mouse
-document.addEventListener('mousemove', (e) =>{
-    const mouseX = e.clientX;
+document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    
+    smoothUpdate(); // Call the smooth movement update on mousemove
+});
 
-    if(!prefersReducedMotion()){
-        foregroundClouds.style.right= `-${mouseX/300 + 10}%`;
-        backgroundWhisps.style.right= `-${mouseX/450 + 12}%`;   
+function smoothUpdate() {
+    const foregroundTargetRight = -(mouseX / 350 + 10);
+    const backgroundTargetRight = -(mouseX / 550 + 12);
+
+    const foregroundRightDiff = foregroundTargetRight - currentForegroundRight;
+    const backgroundRightDiff = backgroundTargetRight - currentBackgroundRight;
+
+    currentForegroundRight += foregroundRightDiff * smoothFactor;
+    currentBackgroundRight += backgroundRightDiff * smoothFactor;
+
+    if (!prefersReducedMotion()) {
+        foregroundClouds.style.right = `${currentForegroundRight}%`;
+        backgroundWhisps.style.right = `${currentBackgroundRight}%`;
     }
-})
-
+}
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -88,3 +103,25 @@ function setScrollVar() {
 window.addEventListener('scroll', setScrollVar);
 window.addEventListener('resize', setScrollVar);
 setScrollVar();
+
+const hero = document.querySelector('.mask')
+
+window.addEventListener('mousemove', (e) => {
+    //make sure to go back and adjust for mobile
+    // if (!hero.isIntersecting) return this wont work unless in the intersectionobserver function
+	const { clientX, clientY } = e
+    const rect = hero.getBoundingClientRect();
+
+    if (clientX < rect.left || clientX > rect.right || clientY < rect.top || clientY > rect.bottom) {
+        hero.classList.add("zero-opacity")
+        return
+    } else {
+        console.log(hero)
+        hero.classList.remove("zero-opacity")
+        const x = Math.round((clientX - rect.left) / rect.width * 100)
+        const y = Math.round((clientY - rect.top) / rect.height * 100)
+        hero.style.setProperty('--x', `${x}%`)
+	    hero.style.setProperty('--y', `${y}%`)
+    }
+    console.log(x, y)	
+})

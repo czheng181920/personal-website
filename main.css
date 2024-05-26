@@ -86,7 +86,6 @@ body{
     top: 0px;
     right: 0px;
     z-index: -1;
-    transition: right 0.3s ease-out;
 }
 
 #backgroundWhisps{
@@ -95,6 +94,24 @@ body{
 
 #foregroundClouds{
     right: -10%;
+}
+
+.doodle-img-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.doodle-img {
+    max-width: 100%; /* Make sure the images do not overflow their container */
+    height: auto; /* Maintain the aspect ratio of the images */
+    flex-shrink: 1; /* Allow the images to shrink if necessary */
+}
+.doodle-img img{
+    width: 100%;
+    height: auto;
 }
 
 @keyframes fade-right {
@@ -153,14 +170,14 @@ body{
 }
 
 @media (prefers-reduced-motion: no-preference){
-    #backgroundWhisps{
+    /* #backgroundWhisps{
         animation: fade-right .5s 0.2s backwards,
                     idle 10s 1.3s infinite cubic-bezier(0.4, 0, 0.2, 1);
     }
     #foregroundClouds{
         animation: fade-right 0.3s 0.2s backwards,
                     idle 7s 1s infinite cubic-bezier(0.4, 0, 0.2, 1);
-    }
+    } */
     .sidebar-text{
         animation: fade-up 0.2s;
     }
@@ -258,7 +275,6 @@ svg{
     position: relative;
 }
 .about-me-container{
-    height: 100vh;
     width: 100%;
     background-color: var(--lightgrey);
     border-radius: var(--button-size) var(--button-size) 0 0;
@@ -404,6 +420,18 @@ a:active { text-decoration: none; }
         font-size: 7.5rem;
         margin: 0 0 3.5rem 0;
         line-height: 7rem;
+    }
+    .doodle-img-container{
+        flex-direction: row;
+    }
+
+    .mask{
+        --mask: radial-gradient(circle at var(--x, 70%) var(--y, 50%), black 30%, transparent 0);
+        -webkit-mask-image: var(--mask);
+        mask-image: var(--mask);
+    }
+    .zero-opacity{
+        opacity: 0;
     }
 }
 
