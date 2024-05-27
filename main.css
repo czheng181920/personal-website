@@ -55,7 +55,7 @@ h1{
 
 p {
     font-family : Glimer, Verdana;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 .sidebar-text h1{
     font-size: 5rem;
@@ -102,16 +102,22 @@ body{
     align-items: center;
     flex-direction: column;
     width: 100%;
+    display: none;
+}
+#aboutmebuttons{
+    padding-top: 30px;
 }
 
 .doodle-img {
     max-width: 100%; /* Make sure the images do not overflow their container */
     height: auto; /* Maintain the aspect ratio of the images */
     flex-shrink: 1; /* Allow the images to shrink if necessary */
+    
 }
 .doodle-img img{
-    width: 100%;
-    height: auto;
+    width:100%;
+    height:auto
+    max-height:250px;
 }
 
 @keyframes fade-right {
@@ -170,14 +176,14 @@ body{
 }
 
 @media (prefers-reduced-motion: no-preference){
-    /* #backgroundWhisps{
+    #backgroundWhisps{
         animation: fade-right .5s 0.2s backwards,
                     idle 10s 1.3s infinite cubic-bezier(0.4, 0, 0.2, 1);
     }
     #foregroundClouds{
         animation: fade-right 0.3s 0.2s backwards,
                     idle 7s 1s infinite cubic-bezier(0.4, 0, 0.2, 1);
-    } */
+    }
     .sidebar-text{
         animation: fade-up 0.2s;
     }
@@ -191,6 +197,9 @@ body{
         opacity:0;
         transition: all .5s ease-out;
         transform: translateY(50px) scale(0.9);
+    }
+    .hidden#aboutmebuttons{
+        transform: scale(0.9);
     }
     .show {
         opacity:1;
@@ -276,7 +285,7 @@ svg{
 }
 .about-me-container{
     width: 100%;
-    background-color: var(--lightgrey);
+    background-color: var(--bg);
     border-radius: var(--button-size) var(--button-size) 0 0;
 }
 
@@ -293,7 +302,7 @@ svg{
 
 .content-container{
     width: 100%;
-    background-color: var(--lightgrey);
+    background-color: var(--bg);
 }
 .content h1{
     text-align: center;
@@ -388,7 +397,7 @@ a:active { text-decoration: none; }
         width: 100%;
         justify-content: flex-start;
     }
-    .content .buttons-container{
+    .projects .buttons-container{
         width: 240px;
         justify-content:center;
     }
@@ -423,15 +432,40 @@ a:active { text-decoration: none; }
     }
     .doodle-img-container{
         flex-direction: row;
+        display: flex;
     }
 
     .mask{
         --mask: radial-gradient(circle at var(--x, 70%) var(--y, 50%), black 30%, transparent 0);
         -webkit-mask-image: var(--mask);
         mask-image: var(--mask);
-    }
-    .zero-opacity{
         opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    .mask:hover{
+        opacity: 1;
+    }
+    .magnifying-glass{
+        position: relative;
+        color: var(--fontColor);
+    }
+    .magnifying-glass::before{
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute; 
+        top: 0;             
+        left: 0;            
+        transition: opacity 0.3s ease;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2325384B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-search'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: center; 
+    }
+    .dark-theme .magnifying-glass::before{
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23F3F2ED' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-search'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
+    }
+    .magnifying-glass:hover::before {
+        opacity: 0; 
     }
 }
 
@@ -453,6 +487,9 @@ a:active { text-decoration: none; }
 .sticky{
     position: sticky;
     top:0;
+}
+
+.first{
     z-index: 1;
 }
 .sticky::before {

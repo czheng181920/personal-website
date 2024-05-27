@@ -96,7 +96,7 @@ function setScrollVar() {
     htmlElement.scrollTop / htmlElement.clientHeight
     htmlElement.style.setProperty(
         "--scroll",
-        Math.min(percentOfScreenHeightScrolled * 100, 100)
+        percentOfScreenHeightScrolled * 100
     )
 }
 
@@ -113,11 +113,9 @@ window.addEventListener('mousemove', (e) => {
     const rect = hero.getBoundingClientRect();
 
     if (clientX < rect.left || clientX > rect.right || clientY < rect.top || clientY > rect.bottom) {
-        hero.classList.add("zero-opacity")
         return
     } else {
         console.log(hero)
-        hero.classList.remove("zero-opacity")
         const x = Math.round((clientX - rect.left) / rect.width * 100)
         const y = Math.round((clientY - rect.top) / rect.height * 100)
         hero.style.setProperty('--x', `${x}%`)
