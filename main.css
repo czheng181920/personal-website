@@ -675,6 +675,7 @@ a:active { text-decoration: none; }
     .projects .button:hover{
         background-color: var(--buttonHoverColor);
         stroke: var(--buttonColor);
+        color: var(--buttonColor);
         --linkColor: var(--buttonColor);
     }
 }
