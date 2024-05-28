@@ -106,6 +106,8 @@ setScrollVar();
 
 const hero = document.querySelector('.mask')
 
+function adjustMask(e) {
+}
 window.addEventListener('mousemove', (e) => {
     //make sure to go back and adjust for mobile
     // if (!hero.isIntersecting) return this wont work unless in the intersectionobserver function
