@@ -127,6 +127,8 @@ body{
 .doodle-img img{
     max-height: 250px;
     object-fit: contain;
+    width:100%;
+    height:auto;
 }
 
 @keyframes fade-right {
