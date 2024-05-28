@@ -125,9 +125,8 @@ body{
     flex-shrink: 1; /* Allow the images to shrink if necessary */
 }
 .doodle-img img{
-    width:100%;
-    height: auto;
     max-height: 250px;
+    object-fit: contain;
 }
 
 @keyframes fade-right {
@@ -231,6 +230,14 @@ body{
     .hidden#aboutmebuttons{
         transform: scale(0.9);
     }
+    .right.hidden {
+        opacity:0;
+        transform: translateY(0px) scale(1);
+    }
+    .left.hidden {
+        opacity:0;
+        transform: translateY(0px) scale(1);
+    }
     .show#aboutmebuttons{
         transform: scale(1);
     }
@@ -239,10 +246,12 @@ body{
         transform: translateY(0px) scale(1);
     }
     .right.show {
-        animation: fade-fast .5s 0.2s backwards;
+        opacity: 1;
+        animation: fade-fast .5s 0.2s ease backwards;
     }
     .left.show{
-        animation: fade-left .5s 0.2s backwards;
+        opacity: 1;
+        animation: fade-left .5s 0.2s ease backwards;
     
     }
 
