@@ -51,8 +51,8 @@ function prefersReducedMotion() {
 const foregroundClouds = document.getElementById("foregroundClouds");
 const backgroundWhisps = document.getElementById("backgroundWhisps");
 let mouseX = 0;
-let currentForegroundRight = 0;
-let currentBackgroundRight = 0;
+let currentForegroundRight = -10;
+let currentBackgroundRight = -12;
 const smoothFactor = 0.1; // Adjust the smooth factor for desired smoothness
 
 document.addEventListener('mousemove', (e) => {
