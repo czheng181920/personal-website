@@ -221,6 +221,10 @@ body{
     .buttons-container{
         animation: fade-right-slow 0.2s .6s backwards;
     }
+    .endingflexcontainer .buttons-container{ 
+        animation: none;
+    }
+    
     .theme-btn{
         animation: fade-right-slow 0.2s .6s backwards;
     }
@@ -254,7 +258,6 @@ body{
     .left.show{
         opacity: 1;
         animation: fade-left .5s 0.2s ease backwards;
-    
     }
 
 }
@@ -367,6 +370,9 @@ svg{
 .content-container{
     width: 100%;
     background-color: var(--bg);
+    border-radius: 0 0 var(--button-size) var(--button-size);
+    padding-bottom: 50px;
+    overflow-x: hidden;
 }
 .content h1{
     text-align: center;
@@ -457,10 +463,51 @@ a:active { text-decoration: none; }
     object-fit: cover;
     border-radius: var(--button-size);
 }
+
+.flextobottom{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+}
+
+.endingflexcontainer{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    margin: 3% auto;
+    gap: 10px;
+}
+.ending{
+    width:100%;
+    text-align: center;
+    font-family: Goldplay, Verdana;
+    font-size: 1.5rem;
+}
+
+.endingflexcontainer .button{
+    background-color: var(--buttonColorContact);
+    stroke: var(--buttonHoverColorContact);
+}
 /* Larger than mobile */
 @media (min-width: 1000px) {
     :root{
         --sidebar-width: 520px;
+    }
+    
+    .endingflexcontainer{
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 1% 2%;
+        width:96%;
+    }
+    .endingflexcontainer .buttons-container{
+        justify-content: end;
+    }
+    .ending{
+        text-align: left;
     }
     .sidebar-container{
         width: var(--sidebar-width);
@@ -627,7 +674,7 @@ a:active { text-decoration: none; }
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background-color: rgba(0, 0, 0, var(--alpha-value)); /* Semi-transparent black */
     pointer-events: none; 
     z-index: 1; /* Ensure this is above the parent content but below any overlaying elements */
@@ -638,6 +685,34 @@ a:active { text-decoration: none; }
     z-index: 20;
 }
 
+.contact{
+    display: none; /* Hide initially */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    color: var(--bg);
+    background-color: var(--fontColor);
+    width: 100%;
+    height: 100vh;
+}
+
+.contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(37, 56, 75, var(--scrollBottom)); /* Semi-transparent black */
+    pointer-events: none; 
+    z-index: 1; /* Ensure this is above the parent content but below any overlaying elements */
+}
+.clear{
+    height: calc((var(--button-extra-size) + var(--button-size)) * 3);
+    pointer-events: none;
+}
+
 .light-theme{
     --bg: var(--lightgrey);
     --fontColor: var(--darkblue);
@@ -646,6 +721,8 @@ a:active { text-decoration: none; }
     --themeBtnFontColor:var(--darkblue);
     --buttonColor: var(--darkblue);
     --buttonHoverColor: var(--superlightblue);
+    --buttonColorContact: var(--lightgrey);
+    --buttonHoverColorContact: var(--lightblue);
     --insideBtnPosition: right;
     --insideBtnColor: var(--lightgrey);
 }
@@ -658,6 +735,8 @@ a:active { text-decoration: none; }
     --themeBtnFontColor:var(--light);
     --buttonColor: var(--lightgrey);
     --buttonHoverColor: var(--lightblue);
+    --buttonColorContact: var(--darkblue);
+    --buttonHoverColorContact: var(--superlightblue);
     --insideBtnPosition: left;
     --insideBtnColor: var(--darkblue);
 }
@@ -689,8 +768,13 @@ a:active { text-decoration: none; }
         color: var(--buttonColor);
         --linkColor: var(--buttonColor);
     }
+    .endingflexcontainer .button:hover{
+        background-color: var(--buttonHoverColorContact);
+        stroke: var(--buttonColorContact);
+    }
 }
 
 :root{
     --scroll:0;
+    --scrollBottom:1;
 }

@@ -62,8 +62,8 @@ document.addEventListener('mousemove', (e) => {
 });
 
 function smoothUpdate() {
-    const foregroundTargetRight = -(mouseX / 350 + 10);
-    const backgroundTargetRight = -(mouseX / 550 + 12);
+    const foregroundTargetRight = -(mouseX / 150 + 10);
+    const backgroundTargetRight = -(mouseX / 350 + 12);
 
     const foregroundRightDiff = foregroundTargetRight - currentForegroundRight;
     const backgroundRightDiff = backgroundTargetRight - currentBackgroundRight;
@@ -89,15 +89,40 @@ const observer = new IntersectionObserver((entries) => {
 
 const hiddenElements = document.querySelectorAll('.hidden');
 hiddenElements.forEach(element => observer.observe(element));
-
+const contactElement = document.querySelector('.contact');
+const clearElement = document.querySelector('.clear');
+const contactElementTop = document.querySelector('.content-container');
+const hiddenEndings = document.querySelectorAll('.endinghidden');
 function setScrollVar() {
     const htmlElement = document.documentElement
+    const clientHeight = htmlElement.clientHeight;
+    const triggerDivTop = contactElementTop.getBoundingClientRect().bottom;
+    const triggerHeight = clearElement.getBoundingClientRect().height;
+
     const percentOfScreenHeightScrolled =
-    htmlElement.scrollTop / htmlElement.clientHeight
+    htmlElement.scrollTop / clientHeight
+    const percentOfScreenHeightScrolledBottom = Math.max( 1 - ((clientHeight - triggerDivTop) / triggerHeight), 0)
+    console.log(percentOfScreenHeightScrolledBottom)
+    // console.log(clientHeight, triggerDivTop, contactElement.getBoundingClientRect().height)
     htmlElement.style.setProperty(
         "--scroll",
         percentOfScreenHeightScrolled * 100
     )
+    htmlElement.style.setProperty(
+        "--scrollBottom",
+        percentOfScreenHeightScrolledBottom 
+    )
+
+    if (percentOfScreenHeightScrolled > 1 ){
+        contactElement.style.display = 'block';
+    } else {
+        contactElement.style.display = 'none';
+    }
+    if (triggerDivTop < clientHeight - 1) {
+        hiddenEndings.forEach(element => element.classList.add('show'));
+    } else {
+        hiddenEndings.forEach(element => element.classList.remove('show'));
+    }
 }
 
 window.addEventListener('scroll', setScrollVar);
