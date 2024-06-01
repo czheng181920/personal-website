@@ -99,11 +99,10 @@ function setScrollVar() {
     const triggerDivTop = contactElementTop.getBoundingClientRect().bottom;
     const triggerHeight = clearElement.getBoundingClientRect().height;
 
-    const percentOfScreenHeightScrolled =
-    htmlElement.scrollTop / clientHeight
+    const percentOfScreenHeightScrolled = htmlElement.scrollTop / clientHeight
     const percentOfScreenHeightScrolledBottom = Math.max( 1 - ((clientHeight - triggerDivTop) / triggerHeight), 0)
-    console.log(percentOfScreenHeightScrolledBottom)
-    // console.log(clientHeight, triggerDivTop, contactElement.getBoundingClientRect().height)
+
+    //setting css prperties
     htmlElement.style.setProperty(
         "--scroll",
         percentOfScreenHeightScrolled * 100
@@ -113,6 +112,7 @@ function setScrollVar() {
         percentOfScreenHeightScrolledBottom 
     )
 
+    //adding visibility to contact div
     if (percentOfScreenHeightScrolled > 1 ){
         contactElement.style.display = 'block';
     } else {
@@ -129,10 +129,8 @@ window.addEventListener('scroll', setScrollVar);
 window.addEventListener('resize', setScrollVar);
 setScrollVar();
 
+//code for magnifying glass effect
 const hero = document.querySelector('.mask')
-
-function adjustMask(e) {
-}
 window.addEventListener('mousemove', (e) => {
     //make sure to go back and adjust for mobile
     // if (!hero.isIntersecting) return this wont work unless in the intersectionobserver function
