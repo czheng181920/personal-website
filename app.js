@@ -150,3 +150,13 @@ window.addEventListener('mousemove', (e) => {
     }
     console.log(x, y)	
 })
+
+document.querySelectorAll('.sticky button').forEach(button => {
+    button.addEventListener('focus', () => {
+        // Scroll all the way to the top when a button is focused
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+});

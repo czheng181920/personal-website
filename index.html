@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang=”en”> 
+<html lang="en"> 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -15,10 +15,22 @@
     
     <div class="main-container">
         <section class="sticky first">
+            <div>
+                <button class="theme-btn" tabindex="0" aria-label="Dark Theme">
+                    <div class = "inside-btn move-right">
+                        <div id="darksvg" class="icon">
+                            <svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                        </div>
+                        <div id="lightsvg" style="display: none;" class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                        </div>
+                    </div>
+                </button>
+            </div>
             <div class = "header">
-                <img class="header-image" id="backgroundImage" src="images/Background.png">
-                <img class="header-image" id="backgroundWhisps" src="images/Background Clouds.png">
-                <img class="header-image" id="foregroundClouds" src="images/Foreground Clouds.png">
+                <img class="header-image" id="backgroundImage" src="images/Background.png"  alt="">
+                <img class="header-image" id="backgroundWhisps" src="images/Background Clouds.png"  alt="">
+                <img class="header-image" id="foregroundClouds" src="images/Foreground Clouds.png"  alt="">
             </div>
             <div class = "sidebar-container">
                 <div class = "sidebar-text">
@@ -31,7 +43,7 @@
                 </div>
                 <div class = "buttons-container">
                     
-                    <a href = "https://github.com/czheng181920" target="_blank">
+                    <a href = "https://github.com/czheng181920" target="_blank" aria-label="Github">
                         <div class = "button">
                                 <div class = "icon">
                                     <!-- all svg files from https://feathericons.com/ -->
@@ -40,7 +52,7 @@
                         
                         </div>
                     </a>
-                    <a href = "https://www.linkedin.com/in/chelsea-zheng" target="_blank">
+                    <a href = "https://www.linkedin.com/in/chelsea-zheng" target="_blank" aria-label="LinkedIn">
                         <div class = "button">
                         
                                 <div class = "icon">
@@ -49,7 +61,7 @@
                         
                         </div>
                     </a>
-                    <a href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" target="_blank">
+                    <a href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" target="_blank" aria-label="Easter Egg">
                         <div class = "button last-button">
                             
                                 <div class = "icon">
@@ -59,18 +71,6 @@
                     </a>
                 </div>
             </div>    
-            <div>
-                <button class="theme-btn" >
-                    <div class = "inside-btn move-right">
-                        <div id="darksvg" class="icon">
-                            <svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-                        </div>
-                        <div id="lightsvg" style="display: none;" class="icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-                        </div>
-                    </div>
-                </button>
-            </div>
         </section>
         
         <section class="layer">
@@ -98,7 +98,7 @@
                         </div>
                         
                         <div class = "buttons-container hidden" id="aboutmebuttons">
-                            <a href = "https://github.com/czheng181920" target="_blank">
+                            <a href = "https://github.com/czheng181920" target="_blank" aria-label="Github">
                                 <div class = "button">
                                     
                                         <div class = "icon">
@@ -108,7 +108,7 @@
                                 
                                 </div>
                             </a>
-                            <a href = "https://www.linkedin.com/in/chelsea-zheng" target="_blank">
+                            <a href = "https://www.linkedin.com/in/chelsea-zheng" target="_blank" aria-label="LinkedIn">
                                 <div class = "button">
                                 
                                         <div class = "icon">
@@ -117,7 +117,7 @@
                                 
                                 </div>
                             </a>
-                            <a href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" target="_blank">
+                            <a href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" target="_blank" aria-label="Easter Egg">
                                 <div class = "button last-button">
                                     
                                         <div class = "icon">
@@ -156,7 +156,7 @@
                                     </ul>
                                     <div class="buttons-container-container">
                                         <div class = "buttons-container">
-                                            <a href = "https://github.com/czheng181920/pokemusic" target="_blank">
+                                            <a href = "https://github.com/czheng181920/pokemusic" target="_blank" aria-label="Github">
                                                 <div class = "button">
                                                     
                                                         <div class = "icon">
@@ -165,7 +165,7 @@
                                                         </div>
                                                 </div>
                                             </a>
-                                            <a href="https://pokemusic.vercel.app/" target="_blank">
+                                            <a href="https://pokemusic.vercel.app/" target="_blank" aria-label="View Project">
                                                 <div class = "button last-button">
                                                         <div class = "icon">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
@@ -178,7 +178,7 @@
                                 </div>
                                 <div class="project-demo">
                                     <div class = "demo-container">
-                                        <img src="images/pokemusic-demo.png" alt="demo" class="poke-gif">
+                                        <img src="images/pokemusic-demo.png" alt="Pokemusic Demo" class="poke-gif">
                                     </div>
                                 </div>
                             </div> 
@@ -187,7 +187,7 @@
                             <div class="project-summary">
                                 <div class="project-demo">
                                     <div class = "demo-container">
-                                        <img src="images/MedDeviceDemo.png" alt="demo" class="med-gif">
+                                        <img src="images/MedDeviceDemo.png" alt="MedDevice Demo" class="med-gif">
                                     </div>
                                 </div>
                                 <div class = "project-details">
@@ -213,7 +213,7 @@
                                     </ul>
                                     <div class="buttons-container-container">
                                         <div class = "buttons-container">
-                                            <a href = "https://devpost.com/software/meddevice-search" target="_blank">
+                                            <a href = "https://devpost.com/software/meddevice-search" target="_blank" aria-label="Devpost">
                                                 <div class = "button">
                                                         <div class = "icon">
                                                             <!-- all svg files from https://feathericons.com/ -->
@@ -221,7 +221,7 @@
                                                         </div>
                                                 </div>
                                             </a>
-                                            <a href="https://annierm18.github.io/MedicalDeviceInfo/" target="_blank">
+                                            <a href="https://annierm18.github.io/MedicalDeviceInfo/" target="_blank" aria-label="View Project">
                                                 <div class = "button last-button">
                                                         <div class = "icon">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
@@ -245,7 +245,7 @@
                     
                     <div class = "endinghidden buttons-container hidden">
                         
-                        <a href = "https://github.com/czheng181920" target="_blank">
+                        <a href = "https://github.com/czheng181920" target="_blank" aria-label="Github">
                             <div class = "button">
                                     <div class = "icon">
                                         <!-- all svg files from https://feathericons.com/ -->
@@ -254,7 +254,7 @@
                             
                             </div>
                         </a>
-                        <a href = "https://www.linkedin.com/in/chelsea-zheng" target="_blank">
+                        <a href = "https://www.linkedin.com/in/chelsea-zheng" target="_blank" aria-label="LinkedIn">
                             <div class = "button">
                             
                                     <div class = "icon">
@@ -263,7 +263,7 @@
                             
                             </div>
                         </a>
-                        <a href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" target="_blank">
+                        <a href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" target="_blank" aria-label="Easter Egg">
                             <div class = "button last-button">
                                 
                                     <div class = "icon">
