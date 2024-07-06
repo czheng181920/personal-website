@@ -23,7 +23,6 @@ switcher.addEventListener('click', function(){
         darksvg.style.display = "none";
     }
 
-    console.log('current class name: ' + className); //console message
 
 });
 
@@ -131,25 +130,55 @@ setScrollVar();
 
 //code for magnifying glass effect
 const hero = document.querySelector('.mask')
-window.addEventListener('mousemove', (e) => {
+let clientX = 0
+let clientY = 0
+function setMagnifyVar(e) {
     //make sure to go back and adjust for mobile
     // if (!hero.isIntersecting) return this wont work unless in the intersectionobserver function
-	const { clientX, clientY } = e
+	({ clientX, clientY } = e)
     const rect = hero.getBoundingClientRect();
 
     if (clientX < rect.left || clientX > rect.right || clientY < rect.top || clientY > rect.bottom) {
         return
     } else {
-        console.log(hero)
         const x = Math.round((clientX - rect.left) / rect.width * 100)
         const y = Math.round((clientY - rect.top) / rect.height * 100)
         hero.style.setProperty('--x', `${x}%`)
 	    hero.style.setProperty('--y', `${y}%`)
     }
-    console.log(x, y)	
-})
+}
+
+function setMagnifyVarOnScroll(e) {
+    //make sure to go back and adjust for mobile
+    // if (!hero.isIntersecting) return this wont work unless in the intersectionobserver function
+    const rect = hero.getBoundingClientRect();
+
+    if (clientX < rect.left || clientX > rect.right || clientY < rect.top || clientY > rect.bottom) {
+        return
+    } else {
+        const x = Math.round((clientX - rect.left) / rect.width * 100)
+        const y = Math.round((clientY - rect.top) / rect.height * 100)
+        hero.style.setProperty('--x', `${x}%`)
+	    hero.style.setProperty('--y', `${y}%`)
+    }
+}
+window.addEventListener('mousemove', setMagnifyVar)
+window.addEventListener('scroll', setMagnifyVarOnScroll)
+
 
 document.querySelectorAll('.sticky button').forEach(button => {
+    console.log(button)
+    button.addEventListener('focus', () => {
+        // Scroll all the way to the top when a button is focused
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+});
+
+document.querySelectorAll('.sticky .stickybutton').forEach(button => {
+    console.log(button)
     button.addEventListener('focus', () => {
         // Scroll all the way to the top when a button is focused
         window.scrollTo({
