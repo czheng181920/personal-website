@@ -268,7 +268,7 @@ body{
     a:focus .buttons-container-container .button{
         width: calc( (4.7 * (var(--button-size) + var(--button-margin))));
     }
-    a:focus .projects .button{
+    .projects a:focus .button{
         background-color: var(--buttonHoverColor);
         stroke: var(--buttonColor);
         color: var(--buttonColor);
