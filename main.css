@@ -51,6 +51,7 @@ h1,h2,h3,h4,h5,h6, h1 span {
 h1{
     font-size: 3rem;
     line-height: 3rem;
+    padding-bottom: 3rem;
 }
 
 h2{
@@ -531,6 +532,11 @@ a:active { text-decoration: none; }
     border-radius: var(--button-size);
 }
 
+.demo-container video{
+    width: 100%;
+    border-radius: var(--button-size);
+}
+
 .flextobottom{
     display: flex;
     flex-direction: column;
@@ -617,6 +623,11 @@ a:active { text-decoration: none; }
         position: absolute;
         top: 0;
         left: 0;
+        border-radius: var(--button-size);
+    }
+
+    .demo-container video{
+        width: 100%;
         border-radius: var(--button-size);
     }
 
